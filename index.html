@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Closures</h1>
-</body>
+  </head>
+  <body>
+    <h1>Closure</h1>
+    <p>
+      Closure is the combination of function bundled together with references to
+      it's surrounding state (the lexical enviornemt). We can also say closure
+      give us to access an outer scope to inner scope
+    </p>
+    <ul>
+      <p>Use Cases of Closure:</p>
+      <li>
+        Private Variables: Closure are commonly used to create private variables
+        and functions within an outer function,
+      </li>
+      <li>preventing direct access from outside the scope.</li>
+      <li>
+        Callback Functions: Closure are useful in callback patterns, where a
+        function needs to remember and access its surrounding state after it is
+        passed as a callback.
+      </li>
+    </ul>
+
+    <script>
+      //Some example of closure
+
+      function outer() {
+        var name = "javascript";
+        function inner() {
+          console.log(name);
+        }
+        inner();
+      }
+      outer();
+
+      function x() {
+        let a = 7;
+        return function y() {
+          console.log(a);
+        };
+      }
+      var z = x();
+      console.log(z);
+
+      function x() {
+        let a = 7;
+        function y() {
+          console.log(a);
+        }
+        a = 120;
+        a = 100;
+        return y;
+      }
+      var z = x();
+      console.log(z);
+      z();
+
+
+
+
+
+
+
+
+
+
+      
+    </script>
+  </body>
 </html>
